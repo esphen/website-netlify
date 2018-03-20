@@ -1,5 +1,10 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Icon from '@fortawesome/react-fontawesome'
+import { faEnvelopeSquare } from '@fortawesome/fontawesome-free-solid'
+import { faTwitterSquare, faGithubSquare } from '@fortawesome/fontawesome-free-brands'
+
+import './styles.css'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -7,36 +12,46 @@ export default class IndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <section className="section">
-        <div className="container">
-          <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
+      <section className="grid">
+        <div className="grid__splash">
+          <img src="/img/splash.jpg" />
+        </div>
+        <main className="grid__main profile">
+          <img
+            src="/img/circle_profile.png"
+            alt="A fancy looking image of a fancy looking developer. Hint: It's me"
+            className="profile__image"
+          />
+          <h1>Espen Henriksen</h1>
+          <p>
+            <i>Web developer</i> and Linux enthusiast, this guy loves everything from
+            Open Source to Instragram dog pics.
+          </p>
+          <h2>What I do</h2>
+          <ul className="what-i-do">
+            <li className="what-i-do__activity">Javascript</li>
+            <li className="what-i-do__activity">React</li>
+            <li className="what-i-do__activity">Linux</li>
+            <li className="what-i-do__activity">Java</li>
+            <li className="what-i-do__activity">Docker</li>
+          </ul>
+        </main>
+        <div className="grid__links links">
+          <div className="links__link">
+            <a href="mailto:espen+portfolio@henriksen.is">
+              <Icon icon={faEnvelopeSquare} size="3x" />
+            </a>
           </div>
-          {posts
-            .filter(post => post.node.frontmatter.templateKey === 'blog-post')
-            .map(({ node: post }) => (
-              <div
-                className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-                key={post.id}
-              >
-                <p>
-                  <Link className="has-text-primary" to={post.fields.slug}>
-                    {post.frontmatter.title}
-                  </Link>
-                  <span> &bull; </span>
-                  <small>{post.frontmatter.date}</small>
-                </p>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button is-small" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
-              </div>
-            ))}
+          <div className="links__link">
+            <a href="https://twitter.com/espen_dev">
+              <Icon icon={faTwitterSquare} size="3x" />
+            </a>
+          </div>
+          <div className="links__link">
+            <a href="https://github.com/esphen">
+              <Icon icon={faGithubSquare} size="3x" />
+            </a>
+          </div>
         </div>
       </section>
     )

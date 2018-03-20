@@ -1,0 +1,80 @@
+:root {
+  --color-gray: #495057;
+  --color-highlight: #33c3f0;
+}
+
+.grid {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 80px;
+  grid-template-areas:
+    "splash main"
+    "splash links";
+}
+
+.grid__splash {
+  grid-area: splash;
+  overflow: hidden;
+  border-right: 1px solid #d8d8d8;
+}
+
+.grid__main {
+  grid-area: main;
+  text-align: center;
+}
+
+.grid__links {
+  grid-area: links;
+}
+
+.grid__splash img {
+  height: 100%;
+  min-width: 100%;
+}
+
+.profile {
+  padding: 20px 40px;
+}
+
+.profile__image {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.what-i-do {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 25px 30px;
+}
+
+.what-i-do__activity {
+  min-width: 200px;
+  margin-bottom: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--color-gray);
+  text-align: left;
+}
+
+.links {
+  display: flex;
+  margin: 10px 0;
+}
+
+.links__link {
+  flex: 1;
+  text-align: center;
+}
+
+.links__link a {
+  padding: 10px;
+  color: var(--color-gray);
+  transition: color .4s;
+}
+
+.links__link a:hover,
+.links__link a:focus {
+  color: var(--color-highlight);
+}
