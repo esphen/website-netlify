@@ -11,6 +11,7 @@ collections:
     folder: "src/pages/skills"
     create: true
     fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "skill"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
 

@@ -1,4 +1,5 @@
 ---
+templateKey: skill
 title: Linux
 ---
 I have a lot of Linux stuff.

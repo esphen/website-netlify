@@ -9,7 +9,7 @@ import './styles.css'
 export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { edges: skills } = data.allMarkdownRemark
 
     return (
       <section className="grid">
@@ -29,11 +29,11 @@ export default class IndexPage extends React.Component {
           </p>
           <h2>What I do</h2>
           <ul className="what-i-do">
-            <li className="what-i-do__activity">Javascript</li>
-            <li className="what-i-do__activity">React</li>
-            <li className="what-i-do__activity">Linux</li>
-            <li className="what-i-do__activity">Java</li>
-            <li className="what-i-do__activity">Docker</li>
+            {skills.map(({ node: skill }) => (
+              <li key={skill.id} className="what-i-do__activity">
+                <Link to={skill.fields.slug}>{skill.frontmatter.title}</Link>
+              </li>
+            ))}
           </ul>
         </main>
         <div className="grid__links links">
@@ -60,18 +60,15 @@ export default class IndexPage extends React.Component {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "skill" }}}) {
       edges {
         node {
-          excerpt(pruneLength: 400)
           id
           fields {
             slug
           }
           frontmatter {
             title
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
           }
         }
       }
