@@ -1,10 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'Espen Henriksen',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
