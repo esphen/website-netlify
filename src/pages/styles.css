@@ -1,6 +1,8 @@
 :root {
   --color-gray: #495057;
   --color-highlight: #33c3f0;
+
+  @custom-media --mobile-size (max-width: 960px);
 }
 
 .grid {
@@ -30,7 +32,8 @@
 
 .grid__splash img {
   height: 100%;
-  min-width: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .profile {
@@ -77,4 +80,19 @@
 .links__link a:hover,
 .links__link a:focus {
   color: var(--color-highlight);
+}
+
+@media (--mobile-size) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40vh 1fr 80px;
+    grid-template-areas:
+      "splash"
+      "main"
+      "links";
+  }
+
+  .profile__image {
+    margin-top: -70px;
+  }
 }
