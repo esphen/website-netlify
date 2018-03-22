@@ -2,7 +2,6 @@ import React from 'react'
 import Content, { HTMLContent } from '../components/Content'
 
 export const SkillTemplate = ({ title, content, contentComponent }) => {
-  console.log('title', title);
   const PageContent = contentComponent || Content
 
   return (
