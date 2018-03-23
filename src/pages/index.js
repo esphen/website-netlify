@@ -12,11 +12,12 @@ import './styles.css'
 
 export default class IndexPage extends React.Component {
   render() {
-    const { allMarkdownRemark, splashImage, profileImage } = this.props.data
+    const { data, transition } = this.props
+    const { allMarkdownRemark, splashImage, profileImage } = data
     const { edges: skills } = allMarkdownRemark
 
     return (
-      <section className="grid">
+      <section className="grid" style={transition && transition.style}>
         <div className="grid__splash">
           <Img sizes={splashImage.sizes} />
         </div>
