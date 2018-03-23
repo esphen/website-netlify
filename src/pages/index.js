@@ -23,7 +23,7 @@ export default class IndexPage extends React.Component {
         </div>
         <main className="grid__main profile">
           <Img
-            sizes={profileImage.sizes}
+            resolutions={profileImage.resolutions}
             alt="A fancy looking image of a fancy looking developer. Hint: It's me"
             className="profile__image"
           />
@@ -86,8 +86,8 @@ export const pageQuery = graphql`
       }
     }
     profileImage: imageSharp(id: { regex: "/circle_profile/" }) {
-      sizes(maxWidth: 150) {
-        ...GatsbyImageSharpSizes_tracedSVG
+      resolutions(width: 150, height: 150) {
+        ...GatsbyImageSharpResolutions_noBase64
       }
     }
   }
