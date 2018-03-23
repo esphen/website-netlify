@@ -18,4 +18,3 @@ const getTransitionStyle = ({ timeout, status }) =>
   getTransitionStyles(timeout)[status]
 
 export default getTransitionStyle
-

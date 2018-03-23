@@ -43,9 +43,9 @@ export default class IndexPage extends React.Component {
         </main>
         <div className="grid__links links">
           <div className="links__link">
-            <a href="mailto:espen+portfolio@henriksen.is">
+            <Link to="/contact">
               <Icon icon={faEnvelopeSquare} size="3x" />
-            </a>
+            </Link>
           </div>
           <div className="links__link">
             <a href="https://twitter.com/espen_dev">
