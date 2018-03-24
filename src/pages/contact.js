@@ -17,15 +17,13 @@ export default class Contact extends React.Component {
   }
 
   handleSubmit = event => {
+    event.preventDefault()
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...this.state }),
     })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error))
-
-    event.preventDefault()
   }
 
   render() {
