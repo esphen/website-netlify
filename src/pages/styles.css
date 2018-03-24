@@ -1,5 +1,6 @@
 :root {
   --color-gray: #495057;
+  --color-light-gray: #495057;
   --color-highlight: #33c3f0;
 
   @custom-media --mobile-size (max-width: 960px);
@@ -11,14 +12,23 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr 80px;
   grid-template-areas:
-    "splash main"
-    "splash links";
+    'splash main  content'
+    'splash links content';
+  transition: all 0.3s;
+}
+
+.grid--expanded {
+  grid-template-columns: 0px 300px 1fr;
+}
+
+.grid--expanded .grid__content {
+  display: block;
 }
 
 .grid__splash {
   grid-area: splash;
   overflow: hidden;
-  border-right: 1px solid #d8d8d8;
+  border-right: 1px solid var(--color-light-gray);
 }
 
 .grid__splash .gatsby-image-outer-wrapper,
@@ -33,6 +43,13 @@
 
 .grid__links {
   grid-area: links;
+}
+
+.grid__content {
+  grid-area: content;
+  display: none;
+  border-left: 1px solid var(--color-light-gray);
+  padding: 25px;
 }
 
 .grid__splash img {
@@ -79,7 +96,7 @@
 .links__link a {
   padding: 10px;
   color: var(--color-gray);
-  transition: color .4s;
+  transition: color 0.4s;
 }
 
 .links__link a:hover,
@@ -92,9 +109,9 @@
     grid-template-columns: 1fr;
     grid-template-rows: 40vh 1fr 80px;
     grid-template-areas:
-      "splash"
-      "main"
-      "links";
+      'splash'
+      'main'
+      'links';
   }
 
   .profile__image {

@@ -58,6 +58,9 @@ export default class IndexPage extends React.Component {
             </a>
           </div>
         </div>
+        <div className="grid__content">
+          Content will be set in this container
+        </div>
       </section>
     )
   }
